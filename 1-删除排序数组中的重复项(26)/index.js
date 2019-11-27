@@ -6,6 +6,23 @@ var removeDuplicates1 = function(nums) {
     }
     return nums.length
 };
+/*
+用java的方式
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length <= 1)return nums.length;
+        int times = 0;
+        for(int i = 1;i<nums.length;i++){
+            while(nums[i] == nums[i-1]){
+                nums[i] = nums[nums.length-1]+1;
+                Arrays.sort(nums);
+                times++;
+            }
+        }
+        return nums.length - times;
+    }
+}
+*/
 
 
 var removeDuplicates2 = function(nums) {

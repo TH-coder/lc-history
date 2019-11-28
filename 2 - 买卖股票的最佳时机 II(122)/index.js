@@ -1,12 +1,27 @@
-var maxProfit1 = function(prices) {
-    return prices.reduce((sum,item,index,arr)=>{
-        if(arr[index+1] > item){
-            return sum + (arr[index+1] - item)
-        }else{
-            return sum
-        }
-    },0);
+var maxProfit = function(prices) {
+    if(prices.length <= 1)return 0;
+    let sum = 0;
+    for(let i = 1;i < prices.length;i++){
+        const profit = prices[i] - prices[i-1];
+           sum += profit>0?profit:0;
+    }
+    return sum;
 };
+
+/*
+class Solution {
+    public int maxProfit(int[] prices) {
+        if( prices.length <= 1 )return 0;
+        int sum = 0;
+        for(int i = 1; i<prices.length; i++ ){
+            int profit = prices[i] - prices[i-1];            
+            sum += profit>0?profit:0;
+        }
+        return sum;
+    }
+}
+ */
+
 
 var maxProfit2 = function(prices) {
     if(prices.length <= 1) return 0;
